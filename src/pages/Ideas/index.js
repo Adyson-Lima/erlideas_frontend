@@ -22,6 +22,16 @@ export default function Ideas(){
     }
   }
 
+  // DELETE, exclui registro na api
+  async function deleteIdea(id){
+    try {
+      await api.delete(`api/v1/ideas/${id}`,{});
+      setIdeas(my_ideas.filter(idea => idea.id !== id));      
+    } catch (error) {
+      alert('Erro ao excluir!');      
+    }
+  }
+
   return(
     <div data-testid="mycard" className="card border-primary" style={{marginTop: '20px'}} >
       <div className="card-header bg-primary" style={{color: '#fff'}}>
@@ -54,7 +64,8 @@ export default function Ideas(){
                   onClick={() => updateIdea(idea.id)}>Editar</button>
 
                   <button data-testid="mybtn2" type="button"
-                  className="btn btn-outline-danger">Excluir</button>
+                  className="btn btn-outline-danger" style={{margin: '2px'}}
+                  onClick={() => deleteIdea(idea.id)}>Excluir</button>
 
                   </td>
               </tr>
