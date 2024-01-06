@@ -1,5 +1,5 @@
 import {render, screen} from '@testing-library/react';
-import NewUpdate from './pages/NewUpdate';
+import NewUpdate from '../pages/NewUpdate';
 import { BrowserRouter, Router } from 'react-router-dom';
 
 describe('Testes da tela NewUpdate', () => {
@@ -14,6 +14,6 @@ describe('Testes da tela NewUpdate', () => {
 
   it('Existe card em NewUpdate?', () => {
     expect(screen.getByTestId('mycard')).toBeInTheDocument();
-  });
+  });  
 
 });
